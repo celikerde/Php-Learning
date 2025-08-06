@@ -1,5 +1,6 @@
 <?php
 
+$_SESSION['name'] = 'Erdem';
 
 view("index.view.php", [
     "heading" => "Home"
