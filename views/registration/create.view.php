@@ -3,9 +3,41 @@
 <?php view("partials/banner.php"); ?>
 
 <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1>Register Here</h1>
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="mx-auto h-10 w-auto" />
+            <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black">Register for an account</h2>
+        </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form action="/register" method="POST" class="space-y-6">
+        <div>
+            <label for="email" class="block text-sm/6 font-medium text-black">Email address</label>
+            <div class="mt-2">
+            <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-black border border-black placeholder:text-gray-500 sm:text-sm/6" />
+            </div>
+            <?php if (isset($errors['email'])) : ?>
+                <p class="text-red-500 mt-2 text-sm"><?= $errors['email'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div>
+            <label for="password" class="block text-sm/6 font-medium text-black">Password</label>
+            <div class="mt-2">
+            <input id="password" type="password" name="password" required autocomplete="current-password" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-black border border-black placeholder:text-gray-500 sm:text-sm/6" />
+            </div>
+            <?php if (isset($errors['password'])) : ?>
+                <p class="text-red-500 mt-2 text-sm"><?= $errors['password'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div>
+            <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Register</button>
+        </div>
+        </form>
     </div>
+    </div>
+
 </main>
 
 <?php require view("partials/footer.php"); ?>
