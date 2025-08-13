@@ -4,6 +4,8 @@ use Core\Validator;
 use Core\App;
 use Core\Database;
 
+$db = App::resolve(Database::class);
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -24,7 +26,6 @@ if (!empty($errors)) {
     ]);
 }
 
-$db = App::resolve(Database::class);
 
 $user = $db->query("SELECT * FROM users WHERE email = :email", [
     "email" => $email
@@ -40,9 +41,7 @@ else {
         "password" => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+    login($user);
 
     header('location: /');
     exit();
