@@ -14,7 +14,16 @@
         <div>
             <label for="email" class="block text-sm/6 font-medium text-black">Email address</label>
             <div class="mt-2">
-            <input id="email" type="email" name="email" required autocomplete="email" class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-black border border-black placeholder:text-gray-500 sm:text-sm/6" />
+            <input 
+                id="email" 
+                type="email" 
+                name="email" 
+                required 
+                autocomplete="email" 
+                class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-black border border-black placeholder:text-gray-500 sm:text-sm/6" 
+                placeholder="Email address"
+                value="<?= $old['email'] ?? '' ?>" />
+
             </div>
             <?php if (isset($errors['email'])) : ?>
                 <p class="text-red-500 mt-2 text-sm"><?= $errors['email'] ?></p>
