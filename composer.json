@@ -1,10 +1,20 @@
 {
     "name": "erdemcelik/php-learning",
-    "require": {},
+    "require": {
+        "illuminate/collections": "^12.35"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
             "Http\\": "Http/"
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     }
 }
